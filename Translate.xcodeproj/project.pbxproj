@@ -17,6 +17,7 @@
 		DE3AC86227DA35B100C65B65 /* translateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86127DA35B100C65B65 /* translateViewController.swift */; };
 		DE3AC86427DA388700C65B65 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86327DA388700C65B65 /* UIColor+.swift */; };
 		DE3AC86627DA3E9E00C65B65 /* SourceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */; };
+		DE3AC86827DA4AA800C65B65 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86727DA4AA800C65B65 /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DE3AC86127DA35B100C65B65 /* translateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateViewController.swift; sourceTree = "<group>"; };
 		DE3AC86327DA388700C65B65 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextViewController.swift; sourceTree = "<group>"; };
+		DE3AC86727DA4AA800C65B65 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				DE3AC84F27DA32B400C65B65 /* LaunchScreen.storyboard */,
 				DE3AC85227DA32B400C65B65 /* Info.plist */,
 				DE3AC86327DA388700C65B65 /* UIColor+.swift */,
+				DE3AC86727DA4AA800C65B65 /* Language.swift */,
 			);
 			path = Translate;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				DE3AC86227DA35B100C65B65 /* translateViewController.swift in Sources */,
 				DE3AC85F27DA33AB00C65B65 /* TabBarController.swift in Sources */,
 				DE3AC84527DA32B200C65B65 /* AppDelegate.swift in Sources */,
+				DE3AC86827DA4AA800C65B65 /* Language.swift in Sources */,
 				DE3AC84727DA32B200C65B65 /* SceneDelegate.swift in Sources */,
 				DE3AC86427DA388700C65B65 /* UIColor+.swift in Sources */,
 				DE3AC86627DA3E9E00C65B65 /* SourceTextViewController.swift in Sources */,
