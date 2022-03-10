@@ -82,10 +82,18 @@
 			isa = PBXGroup;
 			children = (
 				DE3AC85E27DA33AB00C65B65 /* TabBarController.swift */,
+				DE3AC86927DA4B0500C65B65 /* translate */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DE3AC86927DA4B0500C65B65 /* translate */ = {
+			isa = PBXGroup;
+			children = (
 				DE3AC86127DA35B100C65B65 /* translateViewController.swift */,
 				DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */,
 			);
-			path = ViewController;
+			path = translate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
