@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class translate: UIViewController {
+class translateViewController: UIViewController {
     //MARK: - Properties
     private lazy var sourceLanguageButton: UIButton = {
         let button = UIButton()
@@ -81,6 +81,9 @@ class translate: UIViewController {
         let view = UIView()
         view.backgroundColor = .systemBackground
         
+        let guesture = UITapGestureRecognizer(target: self, action: #selector(didTapSourceLabelBaseButton))
+        view.addGestureRecognizer(guesture)
+        
         return view
     }()
     
@@ -102,8 +105,28 @@ class translate: UIViewController {
     }
 }
 
+
+//MARK: - Event
+private extension translateViewController {
+    @objc func didTapSourceLabelBaseButton(){
+        let viewController = SourceTextViewController(delegate: self)
+        present(viewController, animated: true, completion: nil)
+    }
+}
+
+extension translateViewController: SourceTextViewControllerDelegate {
+    func didEnterText(_ sourceText: String) {
+        if sourceText == "" { return }
+        
+        sourceLabel.text = sourceText
+        sourceLabel.textColor = .label
+    }
+    
+    
+}
+
 //MARK: - Private Function
-private extension translate {
+private extension translateViewController {
     func UIConfigue(){
         view.backgroundColor = .secondarySystemBackground
         [
@@ -116,7 +139,8 @@ private extension translate {
             sourceLabel,
         ].forEach{view.addSubview($0)}
         
-        //16.0 14.0 등 많이 사용하는 것들은 따로 정의 하여 사용
+        //16.0 등 많이 사용하는 것들은 따로 정의 하여 사용
+        
         let defaultSpacing: CGFloat = 16.0
         
         buttonStackView.snp.makeConstraints{

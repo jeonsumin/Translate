@@ -14,8 +14,9 @@
 		DE3AC85A27DA32E100C65B65 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE3AC85927DA32E100C65B65 /* SnapKit */; };
 		DE3AC85D27DA331900C65B65 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DE3AC85C27DA331900C65B65 /* Alamofire */; };
 		DE3AC85F27DA33AB00C65B65 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC85E27DA33AB00C65B65 /* TabBarController.swift */; };
-		DE3AC86227DA35B100C65B65 /* translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86127DA35B100C65B65 /* translate.swift */; };
+		DE3AC86227DA35B100C65B65 /* translateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86127DA35B100C65B65 /* translateViewController.swift */; };
 		DE3AC86427DA388700C65B65 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86327DA388700C65B65 /* UIColor+.swift */; };
+		DE3AC86627DA3E9E00C65B65 /* SourceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		DE3AC85027DA32B400C65B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE3AC85227DA32B400C65B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE3AC85E27DA33AB00C65B65 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		DE3AC86127DA35B100C65B65 /* translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translate.swift; sourceTree = "<group>"; };
+		DE3AC86127DA35B100C65B65 /* translateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateViewController.swift; sourceTree = "<group>"; };
 		DE3AC86327DA388700C65B65 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				DE3AC85E27DA33AB00C65B65 /* TabBarController.swift */,
-				DE3AC86127DA35B100C65B65 /* translate.swift */,
+				DE3AC86127DA35B100C65B65 /* translateViewController.swift */,
+				DE3AC86527DA3E9E00C65B65 /* SourceTextViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -160,11 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE3AC86227DA35B100C65B65 /* translate.swift in Sources */,
+				DE3AC86227DA35B100C65B65 /* translateViewController.swift in Sources */,
 				DE3AC85F27DA33AB00C65B65 /* TabBarController.swift in Sources */,
 				DE3AC84527DA32B200C65B65 /* AppDelegate.swift in Sources */,
 				DE3AC84727DA32B200C65B65 /* SceneDelegate.swift in Sources */,
 				DE3AC86427DA388700C65B65 /* UIColor+.swift in Sources */,
+				DE3AC86627DA3E9E00C65B65 /* SourceTextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
