@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Lagnguage: CaseIterable {
+enum Language: String, Codable, CaseIterable {
     case ko
     case en
     case ja

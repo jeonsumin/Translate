@@ -15,8 +15,8 @@ enum `Type` {
 
 class translateViewController: UIViewController {
     //MARK: - Properties
-    private var sourceLanguage: Lagnguage = .ko
-    private var targetLanguage: Lagnguage = .en
+    private var sourceLanguage: Language = .ko
+    private var targetLanguage: Language = .en
     
     
     private lazy var sourceLanguageButton: UIButton = {
@@ -79,14 +79,14 @@ class translateViewController: UIViewController {
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        
+        button.addTarget(self, action: #selector(didTapBookmakrButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var copyButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
-        
+        button.addTarget(self, action: #selector(didTapCopyButton), for: .touchUpInside)
         return button
     }()
     
@@ -121,9 +121,39 @@ class translateViewController: UIViewController {
 
 //MARK: - Event
 private extension translateViewController {
+    
+    
     @objc func didTapSourceLabelBaseButton(){
         let viewController = SourceTextViewController(delegate: self)
         present(viewController, animated: true, completion: nil)
+    }
+    
+    //북마크 버튼
+    @objc func didTapBookmakrButton(){
+        guard let sourceText = sourceLabel.text,
+              let translatedText = resultlabel.text,
+              bookmarkButton.imageView?.image == UIImage(systemName: "bookmark") //bookmark.fill == 북마크가 된 상태
+        else { return }
+        bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"),
+                                for: .normal)
+        
+        let currentBookmarks: [Bookmark] = UserDefaults.standard.boockmarks
+        let newBookmark = Bookmark(sourceLanguage: sourceLanguage,
+                                   translatedLanguage: targetLanguage,
+                                   sourceText: sourceText,
+                                   translatedText: translatedText)
+        UserDefaults.standard.boockmarks = [newBookmark] + currentBookmarks
+        
+        print(UserDefaults.standard.boockmarks)
+        
+        //User Default에 저장하는 타이밍
+        
+    }
+    
+    //복사 버튼 이벤트
+    @objc func didTapCopyButton(){
+        
+        UIPasteboard.general.string = resultlabel.text
     }
 }
 
@@ -133,6 +163,9 @@ extension translateViewController: SourceTextViewControllerDelegate {
         
         sourceLabel.text = sourceText
         sourceLabel.textColor = .label
+        
+        //새로운 sourceLabel에 새로운 값이 들어 왔을때 북마크 버튼 초기화
+        bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
     }
     
     
@@ -153,7 +186,7 @@ private extension translateViewController {
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
         
-        Lagnguage.allCases.forEach{ language in
+        Language.allCases.forEach{ language in
             let action = UIAlertAction(title: language.title,
                                        style: .default) { [weak self] _ in
                 switch type {
