@@ -110,6 +110,10 @@ class translateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIConfigue()
+        TranslatorManager().translate(from: "안녕하세요") {
+            
+            print(" 🏵 \($0)")
+        }
     }
 }
 

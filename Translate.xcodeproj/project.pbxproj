@@ -24,6 +24,9 @@
 		DE7F14D927FC536A008411EF /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14D827FC536A008411EF /* BookmarkCollectionViewCell.swift */; };
 		DE7F14DB27FC558C008411EF /* BookmarkTextStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14DA27FC558C008411EF /* BookmarkTextStackView.swift */; };
 		DE7F14DD27FC5764008411EF /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14DC27FC5764008411EF /* Type.swift */; };
+		DE7F14E127FC614C008411EF /* TranslateRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14E027FC614C008411EF /* TranslateRequestModel.swift */; };
+		DE7F14E327FC6181008411EF /* TranslateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14E227FC6181008411EF /* TranslateResponseModel.swift */; };
+		DE7F14E527FC622A008411EF /* TranslatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F14E427FC622A008411EF /* TranslatorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		DE7F14D827FC536A008411EF /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE7F14DA27FC558C008411EF /* BookmarkTextStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTextStackView.swift; sourceTree = "<group>"; };
 		DE7F14DC27FC5764008411EF /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		DE7F14E027FC614C008411EF /* TranslateRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRequestModel.swift; sourceTree = "<group>"; };
+		DE7F14E227FC6181008411EF /* TranslateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponseModel.swift; sourceTree = "<group>"; };
+		DE7F14E427FC622A008411EF /* TranslatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +86,10 @@
 			children = (
 				DE3AC84427DA32B200C65B65 /* AppDelegate.swift */,
 				DE3AC84627DA32B200C65B65 /* SceneDelegate.swift */,
+				DE7F14E627FC622F008411EF /* Managers */,
 				DE7F14D327FC4D2A008411EF /* Extension */,
 				DE7F14DF27FC5850008411EF /* Models */,
-				DE3AC86027DA359A00C65B65 /* ViewController */,
+				DE3AC86027DA359A00C65B65 /* Scene */,
 				DE3AC84D27DA32B400C65B65 /* Assets.xcassets */,
 				DE3AC84F27DA32B400C65B65 /* LaunchScreen.storyboard */,
 				DE3AC85227DA32B400C65B65 /* Info.plist */,
@@ -90,14 +97,14 @@
 			path = Translate;
 			sourceTree = "<group>";
 		};
-		DE3AC86027DA359A00C65B65 /* ViewController */ = {
+		DE3AC86027DA359A00C65B65 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				DE3AC85E27DA33AB00C65B65 /* TabBarController.swift */,
 				DE3AC86927DA4B0500C65B65 /* translate */,
 				DE7F14DE27FC581A008411EF /* bookmark */,
 			);
-			path = ViewController;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		DE3AC86927DA4B0500C65B65 /* translate */ = {
@@ -134,8 +141,18 @@
 				DE7F14DC27FC5764008411EF /* Type.swift */,
 				DE7F14D027FC4B5C008411EF /* Bookmark.swift */,
 				DE3AC86727DA4AA800C65B65 /* Language.swift */,
+				DE7F14E027FC614C008411EF /* TranslateRequestModel.swift */,
+				DE7F14E227FC6181008411EF /* TranslateResponseModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DE7F14E627FC622F008411EF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DE7F14E427FC622A008411EF /* TranslatorManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +235,12 @@
 			files = (
 				DE3AC86227DA35B100C65B65 /* translateViewController.swift in Sources */,
 				DE3AC85F27DA33AB00C65B65 /* TabBarController.swift in Sources */,
+				DE7F14E127FC614C008411EF /* TranslateRequestModel.swift in Sources */,
 				DE3AC84527DA32B200C65B65 /* AppDelegate.swift in Sources */,
 				DE3AC86827DA4AA800C65B65 /* Language.swift in Sources */,
 				DE7F14D527FC4D5D008411EF /* UserDefault+.swift in Sources */,
+				DE7F14E327FC6181008411EF /* TranslateResponseModel.swift in Sources */,
+				DE7F14E527FC622A008411EF /* TranslatorManager.swift in Sources */,
 				DE3AC84727DA32B200C65B65 /* SceneDelegate.swift in Sources */,
 				DE3AC86427DA388700C65B65 /* UIColor+.swift in Sources */,
 				DE7F14DD27FC5764008411EF /* Type.swift in Sources */,
