@@ -16,7 +16,7 @@ final class TabBarController: UITabBarController {
         translateViewController.tabBarItem = UITabBarItem(title: "번역",
                                                           image: UIImage(systemName: "mic"),
                                                           selectedImage: UIImage(systemName: "mic.fill"))
-        let bookMarkViewController = UIViewController()
+        let bookMarkViewController = UINavigationController(rootViewController: BookmarkListViewController())
         bookMarkViewController.tabBarItem = UITabBarItem(title: "즐겨찾기",
                                                          image: UIImage(systemName: "star"),
                                                          selectedImage: UIImage(systemName: "star,fill"))

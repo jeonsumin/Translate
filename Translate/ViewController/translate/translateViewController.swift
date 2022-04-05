@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-enum `Type` {
-    case source
-    case target
-}
-
 class translateViewController: UIViewController {
     //MARK: - Properties
     private var sourceLanguage: Language = .ko
