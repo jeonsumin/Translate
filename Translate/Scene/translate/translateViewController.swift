@@ -10,13 +10,11 @@ import SnapKit
 
 class translateViewController: UIViewController {
     //MARK: - Properties
-    private var sourceLanguage: Language = .ko
-    private var targetLanguage: Language = .en
-    
+    private var translateManager = TranslatorManager() //Alamofire Manager
     
     private lazy var sourceLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle(sourceLanguage.title, for: .normal)
+        button.setTitle(translateManager.sourceLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
@@ -29,7 +27,7 @@ class translateViewController: UIViewController {
     
     private lazy var targetLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle(targetLanguage.title, for: .normal)
+        button.setTitle(translateManager.targetLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15.0, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
@@ -65,7 +63,6 @@ class translateViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 23.0, weight: .bold)
         label.textColor = UIColor.mainTintColor
-        label.text = "Hello"
         label.numberOfLines = 0
         
         return label
@@ -110,10 +107,6 @@ class translateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIConfigue()
-        TranslatorManager().translate(from: "안녕하세요") {
-            
-            print(" 🏵 \($0)")
-        }
     }
 }
 
@@ -137,8 +130,8 @@ private extension translateViewController {
                                 for: .normal)
         
         let currentBookmarks: [Bookmark] = UserDefaults.standard.boockmarks
-        let newBookmark = Bookmark(sourceLanguage: sourceLanguage,
-                                   translatedLanguage: targetLanguage,
+        let newBookmark = Bookmark(sourceLanguage: translateManager.sourceLanguage,
+                                   translatedLanguage: translateManager.targetLanguage,
                                    sourceText: sourceText,
                                    translatedText: translatedText)
         UserDefaults.standard.boockmarks = [newBookmark] + currentBookmarks
@@ -157,11 +150,17 @@ private extension translateViewController {
 }
 
 extension translateViewController: SourceTextViewControllerDelegate {
+    //완료버튼을 눌렀을때 호출
     func didEnterText(_ sourceText: String) {
         if sourceText == "" { return }
         
         sourceLabel.text = sourceText
         sourceLabel.textColor = .label
+        
+        //완료버튼을 눌렀을때 Papago API 네트워크 통신하여 번역 후 화면에 바인딩
+        translateManager.translate(from: sourceText) { [weak self] translateText in
+            self?.resultlabel.text = translateText
+        }
         
         //새로운 sourceLabel에 새로운 값이 들어 왔을때 북마크 버튼 초기화
         bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
@@ -190,10 +189,10 @@ private extension translateViewController {
                                        style: .default) { [weak self] _ in
                 switch type {
                 case .source:
-                    self?.sourceLanguage = language
+                    self?.translateManager.sourceLanguage = language
                     self?.sourceLanguageButton.setTitle(language.title, for: .normal)
                 case .target:
-                    self?.targetLanguage = language
+                    self?.translateManager.targetLanguage = language
                     self?.targetLanguageButton.setTitle(language.title, for: .normal)
                 }
             }
