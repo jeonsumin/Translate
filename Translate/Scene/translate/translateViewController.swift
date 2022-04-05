@@ -12,6 +12,7 @@ class translateViewController: UIViewController {
     //MARK: - Properties
     private var translateManager = TranslatorManager() //Alamofire Manager
     
+    //번역 전 언어 버튼
     private lazy var sourceLanguageButton: UIButton = {
         let button = UIButton()
         button.setTitle(translateManager.sourceLanguage.title, for: .normal)
@@ -20,11 +21,13 @@ class translateViewController: UIViewController {
         button.backgroundColor = .systemBackground
         button.layer.cornerRadius = 9.0
         
+        //번역 전 언어 버튼 액션 추가
         button.addTarget(self, action: #selector(didTapSourceLanguageButton), for: .touchUpInside)
         
         return button
     }()
-    
+
+    //번역 할 언어 버튼
     private lazy var targetLanguageButton: UIButton = {
         let button = UIButton()
         button.setTitle(translateManager.targetLanguage.title, for: .normal)
@@ -33,6 +36,7 @@ class translateViewController: UIViewController {
         button.backgroundColor = .systemBackground
         button.layer.cornerRadius = 9.0
         
+        //번역 할 언어 버튼 액션 추가
         button.addTarget(self, action: #selector(didTapTargetLanguageButton), for: .touchUpInside)
         
         return button
@@ -114,13 +118,13 @@ class translateViewController: UIViewController {
 //MARK: - Event
 private extension translateViewController {
     
-    
+    //번역 할 내용 화면 호출 버튼 액션
     @objc func didTapSourceLabelBaseButton(){
         let viewController = SourceTextViewController(delegate: self)
         present(viewController, animated: true, completion: nil)
     }
     
-    //북마크 버튼
+    //북마크 버튼 액션
     @objc func didTapBookmakrButton(){
         guard let sourceText = sourceLabel.text,
               let translatedText = resultlabel.text,
@@ -129,16 +133,18 @@ private extension translateViewController {
         bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"),
                                 for: .normal)
         
+        //북마크 버튼 클릭시 UserDefaults에 저장
         let currentBookmarks: [Bookmark] = UserDefaults.standard.boockmarks
         let newBookmark = Bookmark(sourceLanguage: translateManager.sourceLanguage,
                                    translatedLanguage: translateManager.targetLanguage,
                                    sourceText: sourceText,
                                    translatedText: translatedText)
+        //User Default에 저장하는 타이밍
         UserDefaults.standard.boockmarks = [newBookmark] + currentBookmarks
         
         print(UserDefaults.standard.boockmarks)
         
-        //User Default에 저장하는 타이밍
+        
         
     }
     

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+//델리게이트 프로토콜
 protocol SourceTextViewControllerDelegate: AnyObject {
     func didEnterText(_ sourceText: String)
 }
@@ -57,6 +58,7 @@ extension SourceTextViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard text == "\n" else { return true }
         
+        //델리게이트를 통해 번역할 내용 담기 
         delegate?.didEnterText(textView.text)
         dismiss(animated: true)
         

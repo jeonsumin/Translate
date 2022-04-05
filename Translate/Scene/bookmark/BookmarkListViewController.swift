@@ -16,12 +16,13 @@ class BookmarkListViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let inset: CGFloat = 16.0
         layout.estimatedItemSize = CGSize(width: view.frame.width - (inset * 2) , height: 100)//최소한의 셀 사이즈
-        layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset) //컬렉션뷰의 섹션 인셋 설정
         layout.minimumLineSpacing = 16.0 //줄의 최소간격
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .secondarySystemBackground
         collectionView.register(BookmarkCollectionViewCell.self, forCellWithReuseIdentifier: BookmarkCollectionViewCell.identifier)
         collectionView.dataSource = self
+        
         return collectionView
         
     }()
